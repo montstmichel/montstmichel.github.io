@@ -38,15 +38,15 @@ menu:
   about: /about || 关于
 
 # Copyright
-copyright: <p>Copyright© 2019-2020 | <a target="_blank" href="https://www.izhaoo.com">zhaoo</a> .AllRightsReserved</p>
+copyright: <p>Copyright© 2019-2020 | <a target="_blank" href="https://dongjinchao.xyz">董金超</a> .AllRightsReserved</p>
 
 # Social
 social:
   qq: tencent://message/?Menu=yes&uin=2582308577 || iconQQ || '#12B7F5'
   wechat: javascript:; || iconwechat-fill || '#09BB07'
-  instagram: https://www.instagram.com/izhaoo/ || iconinstagram || '#DA2E76'
-  github: https://github.com/izhaoo || icongithub-fill || '#24292E'
-  email: mailto:izhaoo@163.com || iconmail
+  instagram: https://www.instagram.com/ || iconinstagram || '#DA2E76'
+  github: https://github.com/montstmichel || icongithub-fill || '#24292E'
+  email: mailto:montstmichel@sina.com || iconmail
 
 # Fab (FloatActionButton)
 fab:
