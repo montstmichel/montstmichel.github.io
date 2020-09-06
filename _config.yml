@@ -20,7 +20,7 @@ url: https://dongjinchao.xyz/
 # 网站的根路径
 # 注意：如果你部署的域名是根路径，则这里写 /
 # 如果你部署的域名是子目录，则这里写/子目录/
-root: /hexo-my-blog/
+root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
