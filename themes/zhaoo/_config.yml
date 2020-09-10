@@ -24,7 +24,7 @@ preview:
   model: wave  #cloud
   welcome_image: http://ww1.sinaimg.cn/large/006reQWdgy1gii4b5bqhij31hc0u03yv.jpg
   motto:
-    default: 我在开了灯的床头下，想问问自己的心啊。
+    default: 欢迎来到我的个人博客
     color: '#000000'
     api:  #'http://localhost:3000/api/motto'
 
