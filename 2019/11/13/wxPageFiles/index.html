@@ -7,13 +7,14 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>个人博客</title>
+  <title>微信页面文件组成 - 个人博客</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="google" content="notranslate" />
 
   
   
+  <meta name="description" content="1. [page-name].js页面逻辑文件，用于创..."> 
   
   <meta name="author" content="董金超"> 
 
@@ -109,6 +110,14 @@
   
 
 
+<nav class="navbar">
+  <div class="left"></div>
+  <div class="center">微信页面文件组成</div>
+  <div class="right">
+    <i class="iconfont iconmenu j-navbar-menu"></i>
+  </div>
+</nav>
+
   <nav class="menu">
   <div class="menu-wrap">
     <div class="menu-close">
@@ -151,91 +160,75 @@
   </div>
 </nav>
   <main id="main">
-  
-    <div class="preview">
-  <div class="preview-image">
-    <h2 class="preview-motto" id="motto"></h2>
-    <!-- <span class="preview-cursor">|</span> -->
-    
-    <div class="preview-overlay">
-      <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-        <defs>
-          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-        </defs>
-        <g class="preview-parallax">
-          <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
-          <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
-          <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-          <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
-        </g>
-      </svg>
-    </div>
-    
-  </div>
-  <div class="preview-scroll">
-    <a href="#container" class="smooth-scroll"><i class="iconfont iconMouse"></i></a>
-  </div>
-</div>
-  
   <div class="container" id="container">
-    <section class="row post">
-  
-  <div class="col-lg-4 col-md-6 col-sm-12 post-item">
-  <div class="post-wrap">
-    
-    <a href="/2019/11/13/wxPageFiles/" class="post-image">
-      <img   class="lazyload" data-original="http://ww1.sinaimg.cn/large/006reQWdgy1gii4chhujbj31hc0zk0tu.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
-    </a>
-    <div class="post-content">
-      <h3 class="post-title"><a href="/2019/11/13/wxPageFiles/">微信页面文件组成</a></h3>
+    <article class="article">
+  <section class="head">
+  <img   class="lazyload" data-original="http://ww1.sinaimg.cn/large/006reQWdgy1gii4chhujbj31hc0zk0tu.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">微信页面文件组成</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>Nov 13, 2019</span
+        class="post-info-item">
       
-      
-      
-      <div class="post-excerpt">
-        <p class="substr-3">1. [page-name].js页面逻辑文件，用于创建页面对象，以及处理页面生命周期控制和数据处理
-12345&#x2F;&#x2F; index.js&#x2F;&#x2F; 获取应用实例&...</p>
-      </div>
-      <div class="post-info">
-        <span class="post-info-item"><i class="iconfont iconcalendar"></i>Nov 13, 2019</span
-          class="post-info-item">
-        
-        <span class="post-info-item"><i class="iconfont iconfont-size"></i>738</span>
-      </div>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>738</span>
     </div>
   </div>
-</div>
+</section>
+  <section class="main">
+    <section class="content">
+      <h2 id="1-page-name-js"><a href="#1-page-name-js" class="headerlink" title="1. [page-name].js"></a>1. [page-name].js</h2><p><strong>页面逻辑文件，用于创建页面对象，以及处理页面生命周期控制和数据处理</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; index.js</span><br><span class="line">&#x2F;&#x2F; 获取应用实例</span><br><span class="line">&#x2F;&#x2F; 完成页面的逻辑，包括功能的实现</span><br><span class="line">var app &#x3D; getApp()</span><br><span class="line">Page()</span><br></pre></td></tr></table></figure>
+<h2 id="2-page-name-wxml"><a href="#2-page-name-wxml" class="headerlink" title="2. [page-name].wxml"></a>2. [page-name].wxml</h2><p><strong>语法遵循XML语法，不是HTML语法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--index.wxml--&gt;</span><br><span class="line">&lt;!-- wxml: wei xin markup language --&gt;</span><br><span class="line">&lt;!-- 基于XML语法，用来定义界面结构 --&gt;</span><br><span class="line">&lt;view class&#x3D;&quot;container&quot;&gt;</span><br><span class="line">&lt;&#x2F;view&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="3-page-name-json-（可选）"><a href="#3-page-name-json-（可选）" class="headerlink" title="3. [page-name].json （可选）"></a>3. [page-name].json （可选）</h2><p><strong>设置当前页面工作时的window的配置，此处会覆盖app.json中的window设置，也就是说只可以设置window中设置的属性</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	&quot;navigationBarTitileText&quot;: &quot;查看启动日志&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-page-name-wxss-（可选）"><a href="#4-page-name-wxss-（可选）" class="headerlink" title="4. [page-name].wxss    （可选）"></a>4. [page-name].wxss    （可选）</h2><p><strong>wxss指的是Wei Xin Style Sheet<br>用于定义页面样式的，语法遵循CSS语法，扩展了CSS基本用法和长度单位 （主要就是rpx响应式像素）</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**index.wxss**&#x2F;</span><br><span class="line">&#x2F;* 完全遵循CSS语法，单位这点比CSS高级 *&#x2F;</span><br><span class="line">&#x2F;* 用于定义页面样式 *&#x2F;</span><br><span class="line">.userinfo &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </section>
+    <section class="extra">
+      
+        <ul class="copyright">
   
-  <div class="col-lg-4 col-md-6 col-sm-12 post-item">
-  <div class="post-wrap">
-    
-    <a href="/2019/11/10/wxProjectStructure/" class="post-image">
-      <img   class="lazyload" data-original="http://ww1.sinaimg.cn/large/006reQWdgy1gii4chhujbj31hc0zk0tu.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
-    </a>
-    <div class="post-content">
-      <h3 class="post-title"><a href="/2019/11/10/wxProjectStructure/">微信小程序项目结构</a></h3>
+  <li><strong>本文作者：</strong>董金超</li>
+  <li><strong>本文链接：</strong><a href="https://dongjinchao.xyz/2019/11/13/wxPageFiles/index.html">https://dongjinchao.xyz/2019/11/13/wxPageFiles/index.html</a></li>
+  <li><strong>版权声明：</strong>本博客所有文章均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
+      rel="external nofollow" target="_blank"> BY-NC-SA </a>许可协议，转载请注明出处！</li>
+  
+</ul>
       
       
-      
-      <div class="post-excerpt">
-        <p class="substr-3">
-1. 逻辑 app.js调用一个App的方法（全局方法）
-12345678&#x2F;&#x2F; app.jsvar obj &#x3D; &#123;&#125;&#x2F;&#x2F; ...</p>
-      </div>
-      <div class="post-info">
-        <span class="post-info-item"><i class="iconfont iconcalendar"></i>Nov 10, 2019</span
-          class="post-info-item">
-        
-        <span class="post-info-item"><i class="iconfont iconfont-size"></i>327</span>
-      </div>
-    </div>
+        <section class="donate">
+  <div class="qrcode">
+    <img   class="lazyload" data-original="http://ww1.sinaimg.cn/large/006reQWdgy1gii4fy7hzcj30jo0jgwif.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
   </div>
-</div>
-  
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
 </section>
-    <section class="paginator">
+      
+      
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag">小程序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+      
+<nav class="nav">
   
-</section>
+  
+    <a href="/2019/11/10/wxProjectStructure/">微信小程序项目结构<i class="iconfont iconright"></i></a>
+  
+</nav>
+
+    </section>
+    
+      <section class="comments">
+        
+          <div class="btn" id="comments-btn">查看评论</div>
+        
+        
+      </section>
+    
+  </section>
+</article>
   </div>
 </main>
   <footer class="footer">
