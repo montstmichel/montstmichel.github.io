@@ -1,11 +1,12 @@
 ---
 title: 微信小程序项目结构
 date: 2019-11-10 12:10:08
+image: http://ww1.sinaimg.cn/large/006reQWdgy1gin5jmqeywj30xs0p8goe.jpg
 tags: 
 - 小程序 
 - 笔记
 ---
-![wxstructure.png](http://ww1.sinaimg.cn/large/006reQWdgy1gilfm6r8y0j30ra0min17.jpg)
+![](http://ww1.sinaimg.cn/large/006reQWdgy1gilfm6r8y0j30ra0min17.jpg)
 ## 1. 逻辑 app.js
 **调用一个App的方法（全局方法）**
 ```

@@ -1,6 +1,7 @@
 ---
 title: 微信页面文件组成
 date: 2019-11-13 12:22:50
+image: http://ww1.sinaimg.cn/large/006reQWdgy1gin5n7zvgyj30xz0pagrv.jpg
 tags:
 - 小程序 
 - 笔记
