@@ -1,0 +1,452 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>正则表达式（JavaScript） - 个人博客</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+
+  
+  
+  <meta name="description" content="正则表达式正则表达式（ regular Express..."> 
+  
+  <meta name="author" content="董金超"> 
+
+  
+    <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  
+  
+    <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  
+  
+    <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  
+  
+    <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_hhodbqn7tit.css">
+
+  
+
+  
+  
+  
+<link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+  
+  
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css">
+
+  
+
+  
+  
+  
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css">
+
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      fancybox: true,
+      pjax: false,
+      lazyload: {
+        enable: true,
+        loadingImage: '/images/theme/loading.gif',
+      },
+      donate: {
+        enable: true,
+        alipay: 'http://ww1.sinaimg.cn/large/006reQWdgy1gii4fy7hzcj30jo0jgwif.jpg',
+        wechat: 'http://ww1.sinaimg.cn/large/006reQWdgy1gii4fy7hzcj30jo0jgwif.jpg'
+      },
+      motto: {
+        api: '',
+        default: '欢迎来到我的个人博客'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        alwaysShow: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: true
+      }
+    }
+  </script>
+
+  
+
+  
+<meta name="generator" content="Hexo 5.1.1"></head>
+<body class="lock-screen">
+  <div class="loading"></div>
+  
+
+
+<nav class="navbar">
+  <div class="left"></div>
+  <div class="center">正则表达式（JavaScript）</div>
+  <div class="right">
+    <i class="iconfont iconmenu j-navbar-menu"></i>
+  </div>
+</nav>
+
+  <nav class="menu">
+  <div class="menu-wrap">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content">
+      
+      
+      
+      
+      <li class="menu-item"><a href="/ " class="underline"> 首页</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/galleries " class="underline"> 摄影</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/archives " class="underline"> 归档</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/tags " class="underline"> 标签</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/categories " class="underline"> 分类</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/about " class="underline"> 关于</a></li>
+      
+    </ul>
+    <div class="menu-copyright"><p>Copyright© 2019-2020 | <a target="_blank" href="https://dongjinchao.xyz">dongjinchao</a> .AllRightsReserved</p></div>
+  </div>
+</nav>
+  <main id="main">
+  <div class="container" id="container">
+    <article class="article">
+  <section class="head">
+  <img   class="lazyload" data-original="http://ww1.sinaimg.cn/large/006reQWdgy1gii4chhujbj31hc0zk0tu.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">正则表达式（JavaScript）</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>Sep 20, 2019</span
+        class="post-info-item">
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>9070</span>
+    </div>
+  </div>
+</section>
+  <section class="main">
+    <section class="content">
+      <h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><p><strong>正则表达式</strong>（ regular Expression）是用来匹配字符串中字符组合的模式。<br>在 <strong>JavaScript</strong> 中，正则表达式也是<strong>对象</strong></p>
+<h4 id="1-用处："><a href="#1-用处：" class="headerlink" title="1. 用处："></a>1. 用处：</h4><ol>
+<li>正则表达式通常被用来检索、替换那些符合某个模式（规则）的文本，例如验证表单：用户名表单只能输入英文字母、数字或者下划线， 昵称输入框中可以输入中文(匹配)。</li>
+<li>正则表达式还常用于过滤掉页面内容中的一些敏感词(替换)</li>
+<li>从字符串中获取我们想要的特定部分(提取)<h4 id="2-正则表达式在js中的使用"><a href="#2-正则表达式在js中的使用" class="headerlink" title="2. 正则表达式在js中的使用"></a>2. 正则表达式在js中的使用</h4><h5 id="2-1-正则表达式的创建"><a href="#2-1-正则表达式的创建" class="headerlink" title="2.1 正则表达式的创建"></a>2.1 正则表达式的创建</h5></li>
+<li>通过调用 RegExp 对象的构造函数创建    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var regexp &#x3D; new RegExp(&#x2F;123&#x2F;)</span><br></pre></td></tr></table></figure></li>
+<li>利用字面量创建 正则表达式<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var re &#x3D; &#x2F;123&#x2F;</span><br></pre></td></tr></table></figure>
+<h5 id="2-2-测试正则表达式"><a href="#2-2-测试正则表达式" class="headerlink" title="2.2 测试正则表达式"></a>2.2 测试正则表达式</h5>RegExpObj.test(str) 正则对象方法，用于检测字符串是否符合该规则，该对象会返回 true 或 false，其参数是测试字符串。<h4 id="3-正则表达式中的特殊字符"><a href="#3-正则表达式中的特殊字符" class="headerlink" title="3. 正则表达式中的特殊字符"></a>3. 正则表达式中的特殊字符</h4><h5 id="3-1-正则表达式的组成（边界符）"><a href="#3-1-正则表达式的组成（边界符）" class="headerlink" title="3.1 正则表达式的组成（边界符）"></a>3.1 正则表达式的组成（边界符）</h5>边界符     | 说明</li>
+</ol>
+<p>——– | —–<br>^  | 表示匹配行首的文本（以谁开始）<br>$  | 表示匹配行尾的文本（以谁结束）<br>如果 ^和 $ 在一起，表示必须是精确匹配。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">        &#x2F;&#x2F; 边界符 ^ $ </span><br><span class="line">        var rg &#x3D; &#x2F;abc&#x2F;; &#x2F;&#x2F; 正则表达式里面不需要加引号 不管是数字型还是字符串型</span><br><span class="line">        &#x2F;&#x2F; &#x2F;abc&#x2F; 只要包含有abc这个字符串返回的都是true</span><br><span class="line">        console.log(rg.test(&#39;abc&#39;));</span><br><span class="line">        console.log(rg.test(&#39;abcd&#39;));</span><br><span class="line">        console.log(rg.test(&#39;aabcd&#39;));</span><br><span class="line">        console.log(&#39;---------------------------&#39;);</span><br><span class="line">        var reg &#x3D; &#x2F;^abc&#x2F;;</span><br><span class="line">        console.log(reg.test(&#39;abc&#39;)); &#x2F;&#x2F; true</span><br><span class="line">        console.log(reg.test(&#39;abcd&#39;)); &#x2F;&#x2F; true</span><br><span class="line">        console.log(reg.test(&#39;aabcd&#39;)); &#x2F;&#x2F; false</span><br><span class="line">        console.log(&#39;---------------------------&#39;);</span><br><span class="line">        var reg1 &#x3D; &#x2F;^abc$&#x2F;; &#x2F;&#x2F; 精确匹配 要求必须是 abc字符串才符合规范</span><br><span class="line">        console.log(reg1.test(&#39;abc&#39;)); &#x2F;&#x2F; true</span><br><span class="line">        console.log(reg1.test(&#39;abcd&#39;)); &#x2F;&#x2F; false</span><br><span class="line">        console.log(reg1.test(&#39;aabcd&#39;)); &#x2F;&#x2F; false</span><br><span class="line">        console.log(reg1.test(&#39;abcabc&#39;)); &#x2F;&#x2F; false</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="3-2-字符类"><a href="#3-2-字符类" class="headerlink" title="3.2 字符类"></a>3.2 字符类</h5><h6 id="1-方括号"><a href="#1-方括号" class="headerlink" title="1. [ ] 方括号"></a>1. [ ] 方括号</h6><ul>
+<li>方括号 [ ] 表示有一系列字符可供选择，只要匹配其中一个就可以了</li>
+<li>^ 在 [^] 方括号内部表示取反符<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">        &#x2F;&#x2F;var rg &#x3D; &#x2F;abc&#x2F;;  只要包含abc就可以 </span><br><span class="line">        &#x2F;&#x2F; 字符类: [] 表示有一系列字符可供选择，只要匹配其中一个就可以了</span><br><span class="line">        var rg &#x3D; &#x2F;[abc]&#x2F;; &#x2F;&#x2F; 只要包含有a 或者 包含有b 或者包含有c 都返回为true</span><br><span class="line">        console.log(rg.test(&#39;andy&#39;)); &#x2F;&#x2F; true</span><br><span class="line">        console.log(rg.test(&#39;baby&#39;)); &#x2F;&#x2F; true</span><br><span class="line">        console.log(rg.test(&#39;color&#39;)); &#x2F;&#x2F; true</span><br><span class="line">        console.log(rg.test(&#39;red&#39;)); &#x2F;&#x2F; false</span><br><span class="line">        var rg1 &#x3D; &#x2F;^[abc]$&#x2F;; &#x2F;&#x2F; 三选一 只有是a 或者是 b  或者是c 这三个字母才返回 true</span><br><span class="line">        console.log(rg1.test(&#39;aa&#39;)); &#x2F;&#x2F; false</span><br><span class="line">        console.log(rg1.test(&#39;a&#39;)); &#x2F;&#x2F; true</span><br><span class="line">        console.log(rg1.test(&#39;b&#39;)); &#x2F;&#x2F; true</span><br><span class="line">        console.log(rg1.test(&#39;c&#39;)); &#x2F;&#x2F; true</span><br><span class="line">        console.log(rg1.test(&#39;abc&#39;)); &#x2F;&#x2F; false</span><br><span class="line">        console.log(&#39;------------------&#39;);</span><br><span class="line"></span><br><span class="line">        var reg &#x3D; &#x2F;^[a-z]$&#x2F;; &#x2F;&#x2F; 26个英文字母任何一个字母返回 true  - 表示的是a 到z 的范围  </span><br><span class="line">        console.log(reg.test(&#39;a&#39;)); &#x2F;&#x2F; true</span><br><span class="line">        console.log(reg.test(&#39;z&#39;)); &#x2F;&#x2F; true</span><br><span class="line">        console.log(reg.test(1)); &#x2F;&#x2F; false</span><br><span class="line">        console.log(reg.test(&#39;A&#39;)); &#x2F;&#x2F; false</span><br><span class="line">        &#x2F;&#x2F; 字符组合</span><br><span class="line">        var reg1 &#x3D; &#x2F;^[a-zA-Z0-9_-]$&#x2F;; &#x2F;&#x2F; 26个英文字母(大写和小写都可以)任何一个字母返回 true  </span><br><span class="line">        console.log(reg1.test(&#39;a&#39;)); &#x2F;&#x2F; true</span><br><span class="line">        console.log(reg1.test(&#39;B&#39;)); &#x2F;&#x2F; true</span><br><span class="line">        console.log(reg1.test(8)); &#x2F;&#x2F; true</span><br><span class="line">        console.log(reg1.test(&#39;-&#39;)); &#x2F;&#x2F; true</span><br><span class="line">        console.log(reg1.test(&#39;_&#39;)); &#x2F;&#x2F; true</span><br><span class="line">        console.log(reg1.test(&#39;!&#39;)); &#x2F;&#x2F; false</span><br><span class="line">        console.log(&#39;----------------&#39;);</span><br><span class="line">        &#x2F;&#x2F; 如果中括号里面有^ 表示取反的意思 千万和 我们边界符 ^ 别混淆</span><br><span class="line">        var reg2 &#x3D; &#x2F;^[^a-zA-Z0-9_-]$&#x2F;;</span><br><span class="line">        console.log(reg2.test(&#39;a&#39;));; &#x2F;&#x2F; false</span><br><span class="line">        console.log(reg2.test(&#39;B&#39;));; &#x2F;&#x2F; false</span><br><span class="line">        console.log(reg2.test(8));; &#x2F;&#x2F; false</span><br><span class="line">        console.log(reg2.test(&#39;-&#39;));; &#x2F;&#x2F; false</span><br><span class="line">        console.log(reg2.test(&#39;_&#39;));; &#x2F;&#x2F; false</span><br><span class="line">        console.log(reg2.test(&#39;!&#39;)); &#x2F;&#x2F; true</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<h6 id="2-量词符"><a href="#2-量词符" class="headerlink" title="2. 量词符"></a>2. 量词符</h6>量词符用来设定某个模式出现的次数。<br>量词符| 说明</li>
+<li>——- | —–</li>
+</ul>
+<ul>
+<li>| 重复0次或更多次</li>
+</ul>
+<ul>
+<li>| 重复1次或更多次<br>？  | 重复0次或1次<br>{n}  | 重复n次<br>{n,}  | 重复n次或更多次<br>{n,m}  | 重复n到m次(中间不要有空格)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;	</span><br><span class="line">        &#x2F;&#x2F; 量词符: 用来设定某个模式出现的次数</span><br><span class="line">        var reg &#x3D; &#x2F;^a$&#x2F;;</span><br><span class="line">        console.log(reg.test(&#39;a&#39;)); &#x2F;&#x2F; true</span><br><span class="line">        console.log(reg.test(&#39;aa&#39;)); &#x2F;&#x2F; false</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 1. * 相当于 &gt;&#x3D; 0 可以出现0次或者很多次 </span><br><span class="line">        var reg &#x3D; &#x2F;^a*$&#x2F;;</span><br><span class="line">        console.log(reg.test(&#39;&#39;)); &#x2F;&#x2F; true</span><br><span class="line">        console.log(reg.test(&#39;a&#39;)); &#x2F;&#x2F; true</span><br><span class="line">        console.log(reg.test(&#39;aa&#39;)); &#x2F;&#x2F; true</span><br><span class="line">        console.log(reg.test(&#39;aaaaaa&#39;)); &#x2F;&#x2F; true</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 2. + 相当于 &gt;&#x3D; 1 可以出现1次或者很多次</span><br><span class="line">        var reg &#x3D; &#x2F;^a+$&#x2F;;</span><br><span class="line">        console.log(reg.test(&#39;&#39;)); &#x2F;&#x2F; false</span><br><span class="line">        console.log(reg.test(&#39;a&#39;)); &#x2F;&#x2F; true</span><br><span class="line">        console.log(reg.test(&#39;aa&#39;)); &#x2F;&#x2F; true</span><br><span class="line">        console.log(reg.test(&#39;aaaaaa&#39;)); &#x2F;&#x2F; true</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 3. ?  相当于 1 || 0</span><br><span class="line">        var reg &#x3D; &#x2F;^a?$&#x2F;;</span><br><span class="line">        console.log(reg.test(&#39;&#39;)); &#x2F;&#x2F; true</span><br><span class="line">        console.log(reg.test(&#39;a&#39;)); &#x2F;&#x2F; true</span><br><span class="line">        console.log(reg.test(&#39;aa&#39;)); &#x2F;&#x2F; false</span><br><span class="line">        console.log(reg.test(&#39;aaaaaa&#39;)); &#x2F;&#x2F; false</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 4. &#123;3 &#125; 就是重复3次</span><br><span class="line">        var reg &#x3D; &#x2F;^a&#123;3&#125;$&#x2F;;</span><br><span class="line">        console.log(reg.test(&#39;&#39;)); &#x2F;&#x2F; false</span><br><span class="line">        console.log(reg.test(&#39;a&#39;)); &#x2F;&#x2F; false</span><br><span class="line">        console.log(reg.test(&#39;aa&#39;)); &#x2F;&#x2F; false</span><br><span class="line">        console.log(reg.test(&#39;aaaaaa&#39;)); &#x2F;&#x2F; false</span><br><span class="line">        console.log(reg.test(&#39;aaa&#39;)); &#x2F;&#x2F; true</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 5. &#123;3, &#125;  大于等于3</span><br><span class="line">        var reg &#x3D; &#x2F;^a&#123;3,&#125;$&#x2F;;</span><br><span class="line">        console.log(reg.test(&#39;&#39;)); &#x2F;&#x2F; false</span><br><span class="line">        console.log(reg.test(&#39;a&#39;)); &#x2F;&#x2F; false</span><br><span class="line">        console.log(reg.test(&#39;aa&#39;)); &#x2F;&#x2F; false</span><br><span class="line">        console.log(reg.test(&#39;aaaaaa&#39;)); &#x2F;&#x2F; true</span><br><span class="line">        console.log(reg.test(&#39;aaa&#39;)); &#x2F;&#x2F; true</span><br><span class="line">        </span><br><span class="line">        &#x2F;&#x2F; 6. &#123;3, 16&#125;  大于等于3 并且 小于等于16</span><br><span class="line"></span><br><span class="line">        var reg &#x3D; &#x2F;^a&#123;3,16&#125;$&#x2F;;</span><br><span class="line">        console.log(reg.test(&#39;&#39;)); &#x2F;&#x2F; false</span><br><span class="line">        console.log(reg.test(&#39;a&#39;)); &#x2F;&#x2F; false</span><br><span class="line">        console.log(reg.test(&#39;aa&#39;)); &#x2F;&#x2F; false</span><br><span class="line">        console.log(reg.test(&#39;aaaaaa&#39;)); &#x2F;&#x2F; true</span><br><span class="line">        console.log(reg.test(&#39;aaa&#39;)); &#x2F;&#x2F; true</span><br><span class="line">        console.log(reg.test(&#39;aaaaaaaaaaaaaaaaaaaaa&#39;)); &#x2F;&#x2F; false</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">        &#x2F;&#x2F;  量词是设定某个模式出现的次数</span><br><span class="line">        var reg &#x3D; &#x2F;^[a-zA-Z0-9_-]&#123;6,16&#125;$&#x2F;; &#x2F;&#x2F; 这个模式用户只能输入英文字母 数字 下划线 短横线但是有边界符和[] 这就限定了只能多选1</span><br><span class="line">        &#x2F;&#x2F; &#123;6,16&#125;  中间不要有空格</span><br><span class="line">        &#x2F;&#x2F; console.log(reg.test(&#39;a&#39;));</span><br><span class="line">        &#x2F;&#x2F; console.log(reg.test(&#39;8&#39;));</span><br><span class="line">        &#x2F;&#x2F; console.log(reg.test(&#39;18&#39;));</span><br><span class="line">        &#x2F;&#x2F; console.log(reg.test(&#39;aa&#39;));</span><br><span class="line">        &#x2F;&#x2F; console.log(&#39;-------------&#39;);</span><br><span class="line">        &#x2F;&#x2F; console.log(reg.test(&#39;andy-red&#39;));</span><br><span class="line">        &#x2F;&#x2F; console.log(reg.test(&#39;andy_red&#39;));</span><br><span class="line">        &#x2F;&#x2F; console.log(reg.test(&#39;andy007&#39;));</span><br><span class="line">        &#x2F;&#x2F; console.log(reg.test(&#39;andy!007&#39;));</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<h6 id="3-括号总结"><a href="#3-括号总结" class="headerlink" title="3. 括号总结"></a>3. 括号总结</h6></li>
+</ul>
+<p>1.大括号  量词符.  里面表示重复次数</p>
+<p>2.中括号 字符集合。匹配方括号中的任意字符. </p>
+<p>3.小括号表示优先级</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">        &#x2F;&#x2F; 中括号 字符集合.匹配方括号中的任意字符. </span><br><span class="line">        &#x2F;&#x2F; var reg &#x3D; &#x2F;^[abc]$&#x2F;;</span><br><span class="line">        &#x2F;&#x2F; a 也可以 b 也可以 c 可以  a ||b || c</span><br><span class="line">        &#x2F;&#x2F; 大括号  量词符. 里面表示重复次数</span><br><span class="line">        &#x2F;&#x2F; var reg &#x3D; &#x2F;^abc&#123;3&#125;$&#x2F;; &#x2F;&#x2F; 它只是让c重复三次   abccc</span><br><span class="line">        &#x2F;&#x2F; console.log(reg.test(&#39;abc&#39;));</span><br><span class="line">        &#x2F;&#x2F; console.log(reg.test(&#39;abcabcabc&#39;));</span><br><span class="line">        &#x2F;&#x2F; console.log(reg.test(&#39;abccc&#39;));</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 小括号 表示优先级</span><br><span class="line">        var reg &#x3D; &#x2F;^(abc)&#123;3&#125;$&#x2F;; &#x2F;&#x2F; 它是让abcc重复三次</span><br><span class="line">        console.log(reg.test(&#39;abc&#39;));</span><br><span class="line">        console.log(reg.test(&#39;abcabcabc&#39;));</span><br><span class="line">        console.log(reg.test(&#39;abccc&#39;));</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="3-3-预定义类"><a href="#3-3-预定义类" class="headerlink" title="3.3 预定义类"></a>3.3 预定义类</h5><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\d</td>
+<td>匹配0-9之间的任一数字，相当于[0-9]。</td>
+</tr>
+<tr>
+<td>\D</td>
+<td>匹配所有0-9以外的字符，相当于[^0-9]。</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>匹配任意的字母、数字和下划线，相当于[A-Za-z0-9_]</td>
+</tr>
+<tr>
+<td>\W</td>
+<td>除所有字母、数字和下划线以外的字符，相当于[^A-Za-z0-9_]</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>匹配空格（包括换行符、制表符、空格符等），相当于[\t\r\n\v\f]</td>
+</tr>
+<tr>
+<td>\S</td>
+<td>匹配非空格的字符，相当于[^\t\r\n\v\f]</td>
+</tr>
+</tbody></table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">        &#x2F;&#x2F; 座机号码验证:  全国座机号码  两种格式:   010-12345678  或者  0530-1234567</span><br><span class="line">        &#x2F;&#x2F; 正则里面的或者 符号  |  </span><br><span class="line">        &#x2F;&#x2F; var reg &#x3D; &#x2F;^\d&#123;3&#125;-\d&#123;8&#125;|\d&#123;4&#125;-\d&#123;7&#125;$&#x2F;;</span><br><span class="line">        var reg &#x3D; &#x2F;^\d&#123;3,4&#125;-\d&#123;7,8&#125;$&#x2F;;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+    </section>
+    <section class="extra">
+      
+        <ul class="copyright">
+  
+  <li><strong>本文作者：</strong>董金超</li>
+  <li><strong>本文链接：</strong><a href="https://dongjinchao.xyz/2019/09/20/regularExpression/index.html">https://dongjinchao.xyz/2019/09/20/regularExpression/index.html</a></li>
+  <li><strong>版权声明：</strong>本博客所有文章均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
+      rel="external nofollow" target="_blank"> BY-NC-SA </a>许可协议，转载请注明出处！</li>
+  
+</ul>
+      
+      
+        <section class="donate">
+  <div class="qrcode">
+    <img   class="lazyload" data-original="http://ww1.sinaimg.cn/large/006reQWdgy1gii4fy7hzcj30jo0jgwif.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+      
+      
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+      
+<nav class="nav">
+  
+    <a href="/2019/11/10/wxProjectStructure/"><i class="iconfont iconleft"></i>微信小程序项目结构</a>
+  
+  
+</nav>
+
+    </section>
+    
+      <section class="comments">
+        
+          <div class="btn" id="comments-btn">查看评论</div>
+        
+        
+      </section>
+    
+  </section>
+</article>
+  </div>
+</main>
+  <footer class="footer">
+  <div class="footer-social">
+    
+    
+    
+    
+    
+    <a href="tencent://message/?Menu=yes&uin=2582308577 " target="_blank" onMouseOver="this.style.color= '#12B7F5'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  iconQQ "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="javascript:; " target="_blank" onMouseOver="this.style.color= '#09BB07'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  iconwechat-fill "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="https://www.instagram.com " target="_blank" onMouseOver="this.style.color= '#DA2E76'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  iconinstagram "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="https://github.com " target="_blank" onMouseOver="this.style.color= '#24292E'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  icongithub-fill "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="mailto:montstmichel@sina.com " target="_blank" onMouseOver="this.style.color='#FFBE5B'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  iconmail"></i>
+    </a>
+    
+  </div>
+  <div class="footer-copyright"><p>Copyright© 2019-2020 | <a target="_blank" href="https://dongjinchao.xyz">dongjinchao</a> .AllRightsReserved</p></div>
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  <div class="fab fab-daovoice">
+    <i class="iconfont iconcomment"></i>
+  </div>
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+</body>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js"></script>
+
+
+
+
+
+
+<script src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/modules.js"></script>
+<script src="/js/zui.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i["DaoVoiceObject"] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    a.charset = "utf-8";
+    m.parentNode.insertBefore(a, m)
+  })(window, document, "script", ('https:' == document.location.protocol ? 'https:' : 'http:') +
+    "//widget.daovoice.io/widget/0f81ff2f.js", "daovoice")
+  daovoice('init', {
+    app_id: "abcdefg"
+  }, {
+    launcher: {
+      disableLauncherIcon: true,
+    },
+  });
+  daovoice('update');
+</script>
+
+
+
+<script>
+  (function () {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+<script>
+  var _hmt = _hmt || [];
+  (function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?4c204d8bc027a0455b5fc642ac334ca8";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+
+
+
+
+
+</html>
