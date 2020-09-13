@@ -1,0 +1,404 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>closure - 个人博客</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+
+  
+  
+  <meta name="description" content="1 变量作用域
+函数内部可以使用全局变量
+函数外部不可..."> 
+  
+  <meta name="author" content="董金超"> 
+
+  
+    <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  
+  
+    <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  
+  
+    <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  
+  
+    <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_hhodbqn7tit.css">
+
+  
+
+  
+  
+  
+<link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+  
+  
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css">
+
+  
+
+  
+  
+  
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css">
+
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      fancybox: true,
+      pjax: false,
+      lazyload: {
+        enable: true,
+        loadingImage: '/images/theme/loading.gif',
+      },
+      donate: {
+        enable: true,
+        alipay: 'http://ww1.sinaimg.cn/large/006reQWdgy1gii4fy7hzcj30jo0jgwif.jpg',
+        wechat: 'http://ww1.sinaimg.cn/large/006reQWdgy1gii4fy7hzcj30jo0jgwif.jpg'
+      },
+      motto: {
+        api: '',
+        default: '欢迎来到我的个人博客'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        alwaysShow: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: true
+      }
+    }
+  </script>
+
+  
+
+  
+<meta name="generator" content="Hexo 5.1.1"></head>
+<body class="lock-screen">
+  <div class="loading"></div>
+  
+
+
+<nav class="navbar">
+  <div class="left"></div>
+  <div class="center">closure</div>
+  <div class="right">
+    <i class="iconfont iconmenu j-navbar-menu"></i>
+  </div>
+</nav>
+
+  <nav class="menu">
+  <div class="menu-wrap">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content">
+      
+      
+      
+      
+      <li class="menu-item"><a href="/ " class="underline"> 首页</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/galleries " class="underline"> 摄影</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/archives " class="underline"> 归档</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/tags " class="underline"> 标签</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/categories " class="underline"> 分类</a></li>
+      
+      
+      
+      
+      <li class="menu-item"><a href="/about " class="underline"> 关于</a></li>
+      
+    </ul>
+    <div class="menu-copyright"><p>Copyright© 2019-2020 | <a target="_blank" href="https://dongjinchao.xyz">dongjinchao</a> .AllRightsReserved</p></div>
+  </div>
+</nav>
+  <main id="main">
+  <div class="container" id="container">
+    <article class="article">
+  <section class="head">
+  <img   class="lazyload" data-original="http://ww1.sinaimg.cn/large/006reQWdgy1gipf5dc68ij31210p90u0.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">closure</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>Sep 13, 2019</span
+        class="post-info-item">
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>4246</span>
+    </div>
+  </div>
+</section>
+  <section class="main">
+    <section class="content">
+      <h5 id="1-变量作用域"><a href="#1-变量作用域" class="headerlink" title="1 变量作用域"></a>1 变量作用域</h5><ol>
+<li>函数内部可以使用全局变量</li>
+<li>函数外部不可以使用局部变量</li>
+<li>当函数执行完毕，本作用域内的局部变量会销毁<h5 id="2-什么是闭包"><a href="#2-什么是闭包" class="headerlink" title="2 什么是闭包"></a>2 什么是闭包</h5></li>
+</ol>
+<p><strong>闭包（closure）指有权访问另一个函数作用域中变量的函数。—–    JavaScript高级程序设计</strong><br>简单理解就是，一个作用域可以访问另外一个函数内部的局部变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">        &#x2F;&#x2F; 闭包（closure）指有权访问另一个函数作用域中变量的函数。</span><br><span class="line">        &#x2F;&#x2F; 闭包: 我们fun 这个函数作用域 访问了另外一个函数 fn 里面的局部变量 num</span><br><span class="line">        &#x2F;&#x2F; 闭包是函数fn</span><br><span class="line">        function fn() &#123;</span><br><span class="line">            var num &#x3D; 10;</span><br><span class="line"></span><br><span class="line">            function fun() &#123;</span><br><span class="line">                console.log(num);</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            fun();</span><br><span class="line">        &#125;</span><br><span class="line">        fn();</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="3-闭包的作用"><a href="#3-闭包的作用" class="headerlink" title="3 闭包的作用"></a>3 闭包的作用</h5><p> <strong>我们fn 外面的作用域可以访问fn 内部的局部变量<br> 闭包的主要作用: 延伸了变量的作用范围</strong><br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"> &lt;script&gt;</span><br><span class="line">        function fn() &#123;</span><br><span class="line">            var num &#x3D; 10;</span><br><span class="line"></span><br><span class="line">            &#x2F;&#x2F; function fun() &#123;</span><br><span class="line">            &#x2F;&#x2F;     console.log(num);</span><br><span class="line"></span><br><span class="line">            &#x2F;&#x2F; &#125;</span><br><span class="line">            &#x2F;&#x2F; return fun;</span><br><span class="line">            return function() &#123;</span><br><span class="line">                console.log(num);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        var f &#x3D; fn();</span><br><span class="line">        f();</span><br><span class="line">        &#x2F;&#x2F; 类似于</span><br><span class="line">        &#x2F;&#x2F; var f &#x3D; function() &#123;</span><br><span class="line">        &#x2F;&#x2F;         console.log(num);</span><br><span class="line">        &#x2F;&#x2F;     &#125;</span><br><span class="line">        &#x2F;&#x2F; var f &#x3D;  function fun() &#123;</span><br><span class="line">        &#x2F;&#x2F;         console.log(num);</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F;     &#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure></p>
+<h5 id="4-闭包案例"><a href="#4-闭包案例" class="headerlink" title="4. 闭包案例"></a>4. 闭包案例</h5><h6 id="1-循环注册点击事件"><a href="#1-循环注册点击事件" class="headerlink" title="1. 循环注册点击事件"></a>1. 循环注册点击事件</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul class&#x3D;&quot;nav&quot;&gt;</span><br><span class="line">        &lt;li&gt;1&lt;&#x2F;li&gt;</span><br><span class="line">        &lt;li&gt;2&lt;&#x2F;li&gt;</span><br><span class="line">        &lt;li&gt;3&lt;&#x2F;li&gt;</span><br><span class="line">        &lt;li&gt;4&lt;&#x2F;li&gt;</span><br><span class="line">        &lt;li&gt;5&lt;&#x2F;li&gt;</span><br><span class="line">&lt;&#x2F;ul&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">        &#x2F;&#x2F; 闭包应用-点击li输出当前li的索引号</span><br><span class="line">        &#x2F;&#x2F; 1. 我们可以利用动态添加属性的方式</span><br><span class="line">        var lis &#x3D; document.querySelector(&#39;.nav&#39;).querySelectorAll(&#39;li&#39;);</span><br><span class="line">        for (var i &#x3D; 0; i &lt; lis.length; i++) &#123;</span><br><span class="line">            lis[i].index &#x3D; i;</span><br><span class="line">            lis[i].onclick &#x3D; function() &#123;</span><br><span class="line">                &#x2F;&#x2F; console.log(i);</span><br><span class="line">                console.log(this.index);</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F; 2. 利用闭包的方式得到当前小li 的索引号</span><br><span class="line">        for (var i &#x3D; 0; i &lt; lis.length; i++) &#123;</span><br><span class="line">            &#x2F;&#x2F; 利用for循环创建了4个立即执行函数</span><br><span class="line">            &#x2F;&#x2F; 立即执行函数也成为小闭包因为立即执行函数里面的任何一个函数都可以使用它的i这变量</span><br><span class="line">            (function(i) &#123;</span><br><span class="line">                &#x2F;&#x2F; console.log(i);</span><br><span class="line">                lis[i].onclick &#x3D; function() &#123;</span><br><span class="line">                    console.log(i);</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)(i);</span><br><span class="line">        &#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<h6 id="2-循环中的-setTimeout"><a href="#2-循环中的-setTimeout" class="headerlink" title="2. 循环中的 setTimeout()"></a>2. 循环中的 setTimeout()</h6><p>异步任务触发是执行：1. 回调函数    2.定时器、事件（鼠标点击，经过）中的回调函数    3.ajax中的回调函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">        &#x2F;&#x2F; 闭包应用-3秒钟之后,打印所有li元素的内容</span><br><span class="line">        var lis &#x3D; document.querySelector(&#39;.nav&#39;).querySelectorAll(&#39;li&#39;);</span><br><span class="line">        for (var i &#x3D; 0; i &lt; lis.length; i++) &#123;</span><br><span class="line">            (function(i) &#123;</span><br><span class="line">                setTimeout(function() &#123;</span><br><span class="line">                    console.log(lis[i].innerHTML);</span><br><span class="line">                &#125;, 3000)</span><br><span class="line">            &#125;)(i);</span><br><span class="line">        &#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<h6 id="3-计算打车价格（封装函数）"><a href="#3-计算打车价格（封装函数）" class="headerlink" title="3. 计算打车价格（封装函数）"></a>3. 计算打车价格（封装函数）</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">        &#x2F;&#x2F; 闭包应用-计算打车价格 </span><br><span class="line">        &#x2F;&#x2F; 打车起步价13(3公里内),  之后每多一公里增加 5块钱.  用户输入公里数就可以计算打车价格</span><br><span class="line">        &#x2F;&#x2F; 如果有拥堵情况,总价格多收取10块钱拥堵费</span><br><span class="line">        &#x2F;&#x2F; function fn() &#123;&#125;;</span><br><span class="line">        &#x2F;&#x2F; fn();</span><br><span class="line">        var car &#x3D; (function() &#123;</span><br><span class="line">            var start &#x3D; 13; &#x2F;&#x2F; 起步价  局部变量</span><br><span class="line">            var total &#x3D; 0; &#x2F;&#x2F; 总价  局部变量</span><br><span class="line">            return &#123;</span><br><span class="line">                &#x2F;&#x2F; 正常的总价</span><br><span class="line">                price: function(n) &#123;</span><br><span class="line">                    if (n &lt;&#x3D; 3) &#123;</span><br><span class="line">                        total &#x3D; start;</span><br><span class="line">                    &#125; else &#123;</span><br><span class="line">                        total &#x3D; start + (n - 3) * 5</span><br><span class="line">                    &#125;</span><br><span class="line">                    return total;</span><br><span class="line">                &#125;,</span><br><span class="line">                &#x2F;&#x2F; 拥堵之后的费用</span><br><span class="line">                yd: function(flag) &#123;</span><br><span class="line">                    return flag ? total + 10 : total;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)();</span><br><span class="line">        console.log(car.price(5)); &#x2F;&#x2F; 23</span><br><span class="line">        console.log(car.yd(true)); &#x2F;&#x2F; 33</span><br><span class="line"></span><br><span class="line">        console.log(car.price(1)); &#x2F;&#x2F; 13</span><br><span class="line">        console.log(car.yd(false)); &#x2F;&#x2F; 13</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+    </section>
+    <section class="extra">
+      
+        <ul class="copyright">
+  
+  <li><strong>本文作者：</strong>董金超</li>
+  <li><strong>本文链接：</strong><a href="https://dongjinchao.xyz/2019/09/13/closure/index.html">https://dongjinchao.xyz/2019/09/13/closure/index.html</a></li>
+  <li><strong>版权声明：</strong>本博客所有文章均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
+      rel="external nofollow" target="_blank"> BY-NC-SA </a>许可协议，转载请注明出处！</li>
+  
+</ul>
+      
+      
+        <section class="donate">
+  <div class="qrcode">
+    <img   class="lazyload" data-original="http://ww1.sinaimg.cn/large/006reQWdgy1gii4fy7hzcj30jo0jgwif.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+      
+      
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+      
+<nav class="nav">
+  
+    <a href="/2019/09/20/regularExpression/"><i class="iconfont iconleft"></i>正则表达式（JavaScript）</a>
+  
+  
+</nav>
+
+    </section>
+    
+      <section class="comments">
+        
+          <div class="btn" id="comments-btn">查看评论</div>
+        
+        
+      </section>
+    
+  </section>
+</article>
+  </div>
+</main>
+  <footer class="footer">
+  <div class="footer-social">
+    
+    
+    
+    
+    
+    <a href="tencent://message/?Menu=yes&uin=2582308577 " target="_blank" onMouseOver="this.style.color= '#12B7F5'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  iconQQ "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="javascript:; " target="_blank" onMouseOver="this.style.color= '#09BB07'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  iconwechat-fill "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="https://www.instagram.com " target="_blank" onMouseOver="this.style.color= '#DA2E76'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  iconinstagram "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="https://github.com " target="_blank" onMouseOver="this.style.color= '#24292E'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  icongithub-fill "></i>
+    </a>
+    
+    
+    
+    
+    
+    <a href="mailto:montstmichel@sina.com " target="_blank" onMouseOver="this.style.color='#FFBE5B'"
+      onMouseOut="this.style.color='#33333D'">
+      <i class="iconfont footer-social-item  iconmail"></i>
+    </a>
+    
+  </div>
+  <div class="footer-copyright"><p>Copyright© 2019-2020 | <a target="_blank" href="https://dongjinchao.xyz">dongjinchao</a> .AllRightsReserved</p></div>
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  <div class="fab fab-daovoice">
+    <i class="iconfont iconcomment"></i>
+  </div>
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+</body>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js"></script>
+
+
+
+
+
+
+<script src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/modules.js"></script>
+<script src="/js/zui.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i["DaoVoiceObject"] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    a.charset = "utf-8";
+    m.parentNode.insertBefore(a, m)
+  })(window, document, "script", ('https:' == document.location.protocol ? 'https:' : 'http:') +
+    "//widget.daovoice.io/widget/0f81ff2f.js", "daovoice")
+  daovoice('init', {
+    app_id: "abcdefg"
+  }, {
+    launcher: {
+      disableLauncherIcon: true,
+    },
+  });
+  daovoice('update');
+</script>
+
+
+
+<script>
+  (function () {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+<script>
+  var _hmt = _hmt || [];
+  (function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?4c204d8bc027a0455b5fc642ac334ca8";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+
+
+
+
+
+</html>
