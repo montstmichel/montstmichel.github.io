@@ -22,7 +22,7 @@ favicon:
 preview:
   enable: true
   model: wave  #cloud
-  welcome_image: http://ww1.sinaimg.cn/large/006reQWdgy1gii4b5bqhij31hc0u03yv.jpg
+  welcome_image: /images/theme/welcome-image.jpg
   motto:
     default: 欢迎来到我的个人博客
     color: '#000000'
@@ -58,7 +58,7 @@ fab:
 # --------------------------------------------------
 
 # Post image
-post_image: http://ww1.sinaimg.cn/large/006reQWdgy1gii4chhujbj31hc0zk0tu.jpg
+post_image: /images/images/post1.jpg
 
 # Donate
 donate:

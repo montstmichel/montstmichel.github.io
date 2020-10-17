@@ -1,7 +1,6 @@
 ---
 title: 正则表达式（JavaScript）
 date: 2019-09-20 23:02:50
-image: http://ww1.sinaimg.cn/large/006reQWdgy1gin5o4v47zj31hc140dn1.jpg
 tags:
 - JavaScript
 - 笔记
