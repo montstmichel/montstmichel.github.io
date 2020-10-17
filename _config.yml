@@ -15,7 +15,7 @@ timezone: ''
 ## If your site is put in a subdirectory, set url as 'http://example.com/child' and root as '/child/'
 
 # 网站的网址
-url: https://dongjinchao.xyz/
+url: http://dongjinchao.xyz
 
 # 网站的根路径
 # 注意：如果你部署的域名是根路径，则这里写 /
